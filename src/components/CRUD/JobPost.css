@@ -1,0 +1,94 @@
+.job-post-form {
+  width: 600px;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 12px rgb(0, 0, 0);
+  margin-bottom: 2rem;
+}
+
+.job-post-form form {
+  display: grid;
+  grid-gap: 10px;
+}
+
+.job-post-form input,
+.job-post-form select,
+.job-post-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+}
+
+.job-post-form textarea {
+  height: 15rem;
+}
+
+.job-post-form .submit-btn {
+  background-color: #001e60;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.job-post-form .submit-btn:hover {
+  background-color: #002a85d5;
+}
+
+.update-btn {
+  color: black;
+  box-shadow: 0 2px 10px black;
+  font-size: 0.9rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 550;
+
+}
+
+
+
+/* Modal.css */
+.modal-backdrop {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.modal {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.modal-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: none;
+  padding: 0.7rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.795);
+  cursor: pointer;
+
+
+}

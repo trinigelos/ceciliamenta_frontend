@@ -1,0 +1,301 @@
+.whole-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background-color: #fff;
+    width: 760px;
+    max-width: 100vw;
+    height: 480px;
+    position: relative;
+    overflow-x: hidden;
+    margin-top: 1.5rem;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 15px 15px rgba(0, 0, 0, 0.22);
+}
+
+.forms-container {
+    position: relative;
+    width: 50%;
+    text-align: center;
+}
+
+.form-control {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 480px;
+    transition: all 0.5s ease-in;
+}
+
+.background-signup {
+    background-color: #0e77a829;
+}
+
+.background-login {
+    background-color: #0596683a;
+}
+
+.h2-form {
+    font-size: 2rem;
+}
+
+.form-control form {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 30px;
+}
+
+.form-control form input {
+    margin: 10px 0px;
+    border: none;
+    padding: 15px;
+    background-color: #ffffffac;
+    border-radius: 5px;
+}
+
+.form-control form button {
+    border: none;
+    padding: 20px;
+    margin-top: 5px;
+    background-color: #059669;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.form-control form button:focus {
+    outline: none;
+}
+
+.form-control form button:hover {
+    background-color: #004932;
+}
+
+.signup-form {
+    opacity: 0;
+    z-index: 1;
+    left: 200%;
+}
+
+#sign-btn:hover {
+    background-color: #001e60 !important;
+}
+
+.signin-form {
+    opacity: 1;
+    z-index: 2;
+    left: 0%;
+}
+
+.intros-container {
+    position: relative;
+    left: 50%;
+    width: 50%;
+    text-align: center;
+}
+
+.intro-control {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 480px;
+    color: #fff;
+    background: linear-gradient(170deg, #34d399, #059669);
+    transition: all 0.5s ease-in;
+}
+
+.intro-control__inner {
+    margin: 0px 30px;
+}
+
+.intro-control button {
+    border: none;
+    padding: 15px 30px;
+    background-color: #10b981;
+    border-radius: 50px;
+    color: #fff;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+.intro-control button:hover {
+    outline: none;
+    background-color: #059669;
+}
+
+.intro-control p {
+    margin: 10px 0px;
+}
+
+.signin-intro {
+    opacity: 1;
+    z-index: 2;
+}
+
+.signup-intro {
+    opacity: 0;
+    z-index: 1;
+}
+
+/* toggle section */
+
+.change .forms-container .form-control.signup-form {
+    opacity: 1;
+    z-index: 2;
+    transform: translateX(-100%);
+}
+
+.change .forms-container .form-control.signup-form button {
+    background-color: #2563eb !important;
+}
+
+.change .forms-container .form-control.signin-form {
+    opacity: 0;
+    z-index: 1;
+    transform: translateX(-100%);
+}
+
+.change .intros-container .intro-control {
+    transform: translateX(-100%);
+    background: linear-gradient(170deg, #3b82f6, #2563eb);
+}
+
+.change .intros-container .intro-control #signin-btn {
+    background-color: #1c59dd;
+}
+
+.change .intros-container .intro-control #signin-btn:hover {
+    background-color: #001e60;
+}
+
+.change .intros-container .intro-control.signin-intro {
+    opacity: 0;
+    z-index: 1;
+}
+
+.change .intros-container .intro-control.signup-intro {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* success alert button */
+.success-alert {
+    background-color: #1954c2c8;
+    color: #ffffff;
+    text-align: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+}
+
+.success-alert p {
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+.success-alert button {
+    background-color: #1954c2b7;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 4rem;
+    border-radius: 30px;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.success-alert button:hover {
+    background-color: #001c71;
+}
+
+.password-field {
+    position: relative;
+}
+
+/* Styles the input fields for password and confirmation */
+.password-field input {
+    width: 90%;
+    padding: 15px;
+    padding-right: 40px; /* Make room for the visibility toggle icon */
+    /* border: 1px solid #ddd; Border to match your design */
+    border-radius: 5px;
+    font-family: "Raleway", sans-serif; /* Keep font consistent */
+}
+
+/* Positions the visibility toggle icon inside the password field */
+.toggle-password {
+    cursor: pointer;
+    position: absolute;
+    right: 10px; /* Positioned to the far right inside the password field */
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    color: #1954c2b7; /* Green icon, adjust as necessary */
+    background: transparent; /* No background */
+    border: none; /* No border */
+}
+
+@media screen and (max-width: 480px) {
+    .login-container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .forms-container {
+        order: 2;
+        width: 100%;
+        height: 50vh;
+    }
+
+    .form-control {
+        position: absolute;
+        height: 50vh;
+    }
+
+    .signup-form {
+        left: 0%;
+        /* margin-top: 70px; */
+    }
+
+    .intros-container {
+        order: 1;
+        width: 100%;
+        left: 0%;
+        height: 40vh;
+    }
+
+    .intro-control {
+        position: absolute;
+        height: 40vh;
+    }
+
+    .change .forms-container .form-control.signup-form {
+        transform: translateX(0%);
+    }
+
+    .change .forms-container .form-control.signin-form {
+        transform: translateX(0%);
+    }
+
+    .change .intros-container .intro-control {
+        transform: translateX(0%);
+    }
+}

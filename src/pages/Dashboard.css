@@ -1,0 +1,131 @@
+.dashboard-container {
+    display: flex;
+    margin: 0;
+    background-color: #acadae00;
+    overflow: auto;
+    width: 100%;
+}
+
+.sidebar {
+    width: 20vw;
+    background-color: #1c418c;
+    margin: 0;
+    color: white;
+    font-size: 1.2rem;
+    position: fixed;
+    height: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.578);
+}
+
+.main-content {
+    margin: 0 0 0 20vw;
+    padding: 0;
+    width: 80vw;
+}
+
+.nav-items > * {
+    padding: 1.2rem;
+    font-size: 1rem;
+}
+
+.nav-items > *:hover {
+    cursor: pointer;
+    background-color: #79797950;
+}
+
+
+/* active tab on sidebar */
+.active-tab {
+    background-color: #ffffff;
+    color: black;
+}
+
+.active-tab:hover {
+    background-color: white !important;
+}
+
+.dashboardDiv {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 2rem;
+}
+
+.btnCreateJob {
+    background-color: #1c418c;
+}
+
+/* jobs container- jobstab */
+.trabajos-dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(290px, 1fr));
+    padding: 1rem;
+    grid-gap: 1rem;
+    width: 75vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.trabajos-full-container {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+  .sidebar-toggle {
+    display: none;
+  }
+
+/* Responsive adjustments */
+
+
+@media (max-width: 768px) {
+    /* .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative; /* Make sidebar inline for smaller screens 
+    } */
+
+    .sidebar {
+        transform: translateX(-100%);
+        width: 50vw; /* Or 100% if you want full width */
+      }
+      
+      .sidebar.open {
+        transform: translateX(0);
+      }
+      
+      .sidebar-toggle {
+        display: block;
+        /* Additional styling for the toggle button */
+      }
+
+
+
+
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .trabajos-dashboard {
+        grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); /* Adjust grid for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-items > * {
+        padding: 0.8rem; /* Smaller padding for very small screens */
+        font-size: 0.9rem; /* Smaller font size for very small screens */
+    }
+
+    .trabajos-dashboard {
+        grid-template-columns: 1fr; /* Single column for very small screens */
+    }
+}
