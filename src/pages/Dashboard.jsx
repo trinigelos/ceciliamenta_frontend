@@ -16,7 +16,7 @@ const Dashboard = () => {
     const [jobToEdit, setJobToEdit] = useState(null)
     const { handleDelete } = useHandleDelete(setJobPosts)
     const { handleRestore } = useHandleRestore(setJobPosts)
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false); // toggle button for sidebar for responsive layout
+    // const [isSidebarOpen, setIsSidebarOpen] = useState(false); // toggle button for sidebar for responsive layout
 
 
 
@@ -39,7 +39,6 @@ const Dashboard = () => {
         try {
             const response = await fetch(`http://localhost:5000/jobposts?searchTerm=${searchTerm}&location=${location}`);
             const data = await response.json()
-            console.log("Data received from backend:", data);
 
             // Sort posts by createdAt date in descending order
             const sortedData = data.sort(
@@ -61,7 +60,7 @@ const Dashboard = () => {
     return (
         <div className="dashboard-container">
             <div className="sidebar">
-                {/* sidebar toggle button */}
+                {/* sidebar toggle button 
             <button className="sidebar-toggle" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
             {isSidebarOpen ? 'Close' : 'Menu'}
                 </button>

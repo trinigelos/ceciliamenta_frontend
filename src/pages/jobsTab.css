@@ -49,8 +49,9 @@
 .expanded-job-post {
     position: fixed;
     top: 2rem;
-    left: 2rem;
-    width: 95%;
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    width: 85%;
     height: 90%;
     background: rgba(255, 255, 255, 0.814);
     z-index: 10;
@@ -93,7 +94,7 @@
 
 /* expanded view content - read */
 .content-published-container {
-    width: 800px;
+    width: 900px;
     margin: 0;
     margin-bottom: 1rem;
     height: auto;
@@ -136,4 +137,19 @@
 /* trash icon */
 .material-symbols-outlined.trash-btn {
     font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+}
+
+.linkedinLink:link,
+.linkedinLink:visited {
+    background-color: #001e60;
+    color: white;
+    padding: 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.linkedinLink:hover,
+.linkedinLink:active {
+    background-color: #001e60c0;
 }

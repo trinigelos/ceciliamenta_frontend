@@ -5,18 +5,24 @@ export default function SearchBar({ onSearch }) {
     const [searchTerm, setSearchTerm] = useState('');
     const [location, setLocation] = useState('');
 
+
+
     const handleSearchTermChange = (e) => {
-        setSearchTerm(e.target.value);
+        const updatedSearchTerm = (e.target.value);
+        setSearchTerm(updatedSearchTerm);
+        onSearch(updatedSearchTerm, location);
     };
 
     const handleLocationChange = (e) => {
-        setLocation(e.target.value);
-    };
+        const updatedLocation = (e.target.value);
+        setLocation(updatedLocation);
+        onSearch(searchTerm, updatedLocation);
 
+    };
     const handleSearch = () => {
         onSearch(searchTerm, location);
     };
- 
+    
 return (
 
 <div className="search-bar-container">

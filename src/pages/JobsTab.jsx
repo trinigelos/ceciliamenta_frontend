@@ -3,16 +3,14 @@
 //  and open the editform. 
 // uses components of JobEditForm: to show full description and to edit it.
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { formatDate } from '../components/component';
 import { JobDescription } from '../components/component';
 import JobEditForm from '../components/CRUD/JobEditForm';
 import "./jobsTab.css";
 
 
-const JobsTab = ({ job, onEdit, onJobUpdated, onDelete,
-    // onRestore
-}) => {
+const JobsTab = ({ job, onEdit, onJobUpdated, onDelete }) => {
 const [isExpanded, setIsExpanded] = useState(false);
 const [isEditing, setIsEditing] = useState(false);
 
@@ -28,16 +26,34 @@ e.stopPropagation(); // Prevent the expanded view from closing
 onEdit(job); // Call onEdit with the job to be edited
 setIsEditing(true);
 
-};
+    };
+    
+    
+  //function to press ESC to close the job
+  const handleEscKey = (event) => {
+    if (event.key === "Escape") {
+      setIsExpanded(false);
+    }
+  };
+// refreshes to listen to ESC events and removes it to avoid memory leaks
+  useEffect(() => {
+    if (isExpanded) {
+      document.addEventListener("keydown", handleEscKey);
+    }
+    return () => {
+      document.removeEventListener("keydown", handleEscKey);
+    };
+  }, [isExpanded]);
+
 return (
     
 <div className="jobsContainer">
     <div className={`job-post-preview ${isExpanded ? 'expanded' : '' }`} onClick={handleToggle}>
         <h3>{job.title}</h3>
-        <p>{job.company}</p>
+         <p>{job.company.slice(0, 40 )}...</p>
         <p><strong>Ubicacion: </strong> {job.location}</p>
         <p><strong>Disponibilidad: </strong> {job.employmentType}</p>
-        <p>{job.description.slice(0, 50)}...</p>
+        {/* <p>{job.description.slice(0, 50)}...</p> */}
 
     </div>
 
@@ -68,11 +84,13 @@ return (
                             <p><strong>Modalidad: </strong>{job.employmentStyle}</p>
                             <p><strong>Descripción: </strong>
                                 <JobDescription description={job.description} />
-                            </p>
-                            <p><strong>Salario: </strong>{job.salaryRange}</p>
-                            <p><strong>{job.contactEmail}</strong></p>
-
+                                        </p>
+                                        
+                         {job.salaryRange && <p><strong>Salario: </strong>{job.salaryRange}</p>}
+                         {job.contactEmail && <p><strong>Email de contacto: </strong>{job.contactEmail}</p>}
+                                        {job.linkedinLink && <p><a href={job.linkedinLink} className='linkedinLink' target="_blank" rel="noopener noreferrer"><strong>LinkedIn</strong></a></p>}
                                         <p><strong>Publicado: </strong>{formatDate(job.createdAt)}</p> </div>
+
                                 </div>
                                       
                 </>

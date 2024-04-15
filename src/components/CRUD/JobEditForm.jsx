@@ -22,7 +22,7 @@ const response = await fetch(`http://localhost:5000/jobpost/${jobData._id}`, {
 method: 'PUT',
 headers: {
 'Content-Type': 'application/json',
-'Authorization': `Bearer ${localStorage.getItem('token')}` // Use token from localStorage
+'Authorization': `Bearer ${localStorage.getItem('token')}`
 },
 body: JSON.stringify(jobData),
 });
@@ -32,8 +32,7 @@ throw new Error('Failed to update job');
 const updatedJob = await response.json();
 setShowModal(true);
 setModalMessage('Actualizado correctamente');
-    
-// onJobUpdated(updatedJob);
+ 
 } catch (error) {
 setModalMessage('ERROR, intente nuevamente');
 setShowModal(true);
@@ -61,12 +60,14 @@ return (
 <div className="job-post-form">
 
     <form onSubmit={handleSubmit}>
-        <input type="text" name="title" value={jobData.title} onChange={handleChange} placeholder="Titulo de trabajo"
+        <input type="text" name="title" value={jobData.title} onChange={handleChange} placeholder="Puesto de Trabajo"
             required />
         <input type="text" name="company" value={jobData.company} onChange={handleChange} placeholder="Empresa"
             required />
-        <input type="text" name="location" value={jobData.location} onChange={handleChange} placeholder="Ubicacion"
-            required />
+        <input type="text" name="location" value={jobData.location} onChange={handleChange} placeholder="Ubicación"
+                required />
+              <input type="text" name="category" value={jobData.category} onChange={handleChange} placeholder="Categoría"/>
+            
         <select name="employmentType" value={jobData.employmentType} onChange={handleChange}>
             <option value="empty">-</option>
             <option value="Full-time">Full-time</option>
@@ -79,18 +80,18 @@ return (
             <option value="Hibrido">Híbrida</option>
 
         </select>
-        <textarea name="description" value={jobData.description} onChange={handleChange} placeholder="Descripcion"
+        <textarea name="description" value={jobData.description} onChange={handleChange} placeholder="Descripción"
             required></textarea>
 
         <input type="text" name="salaryRange" value={jobData.salaryRange} onChange={handleChange}
-            placeholder="Salary Range" />
+            placeholder="Rango de Salario" />
         <input type="email" name="contactEmail" value={jobData.contactEmail} onChange={handleChange}
-            placeholder="Contact Email" />
-        <input type="url" name="applicationLink" value={jobData.applicationLink} onChange={handleChange}
-            placeholder="Application Link" />
+            placeholder="Email de contacto" />
+        <input type="url" name="linkedinLink" value={jobData.linkedinLink} onChange={handleChange}
+            placeholder="LinkedIn Link" />
         <button className='btn update-btn'>Actualizar</button>
         {showModal &&
-        <Modal message={modalMessage} onClose={closeModal} />}
+        <Modal className="modal-actualizar" message={modalMessage} onClose={closeModal} />}
 
     </form>
 </div>

@@ -42,49 +42,6 @@ export const AuthProvider = ({ children }) => {
     }
   }, [user, token]);
 
-  // //method to verify token
-  // const verifyToken = async () => {
-  //   if (!token) {
-  //     console.log("token not found");
-  //     setUser(null);
-  //     setToken(null);
-  //     return false;
-  //   }c
-
-  //   try {
-  //     const response = await fetch("http://localhost:5000/verifyToken", {
-  //       headers: {
-  //         "Authorization": `Bearer ${token}`
-  //       }
-  //     });
-      
-  //     if (!response.ok) throw new Error("Token verification failed");
-
-  //     const data = await response.json();
-  //     setUser(data.user);
-  //     setToken(token);
-  //     return true;
-  //   }
-  //   catch (error) {
-  //     console.log(`Error in verifyToken: ${error.message}`);
-  //     setUser(null);
-  //     setToken(null);
-  //     localStorage.removeItem("user");
-  //     localStorage.removeItem("token");
-  //   }
-  // };
-
-  // //call verifyToken during initial load
-  // useEffect(() => {
-  //   verifyToken().then(isValid => {
-  //     if (!isValid) {
-  //       console.log('Token is invalid or expired');
-
-  //     }
-  //   })
-  // })
-
-
 
 // Method to handle user registration
 const signup = async (username, email, password, confirmPassword) => {

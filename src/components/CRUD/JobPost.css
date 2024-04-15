@@ -68,6 +68,10 @@
 
 }
 
+.modal-actualizar{
+  height: 175%;
+}
+
 .modal {
   background-color: white;
   display: flex;
